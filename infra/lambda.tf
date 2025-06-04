@@ -14,7 +14,7 @@ resource "aws_lambda_function" "hello" {
   role = aws_iam_role.lambda_exec.arn
 
   vpc_config {
-    subnet_ids         = local.private_subnet_ids
+    subnet_ids         = aws_subnet.private[*].id
     security_group_ids = [aws_security_group.lambda_sg.id]
   }
 
