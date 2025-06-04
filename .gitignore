@@ -1,0 +1,55 @@
+# Node.js
+backend/node_modules/
+backend/.env
+backend/npm-debug.log*
+backend/yarn-debug.log*
+backend/yarn-error.log*
+
+# React
+frontend/node_modules/
+frontend/.env
+frontend/build/
+
+# Logs
+logs
+*.log
+*.csv
+
+# Environment files
+.env
+.env.*
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Terraform
+infra/.terraform/
+infra/.terraform.lock.hcl
+infra/terraform.tfstate
+infra/terraform.tfstate.backup
+infra/crash.log
+
+# AWS credentials (never commit these!)
+*.pem
+
+# Docker
+*.tgz
+docker-compose.override.yml
+**/Dockerfile.*
+**/.dockerignore
+
+# VS Code
+.vscode/
+
+# GitHub Actions cache
+.github/workflows/*.log
+
+# Build artifacts (optional)
+dist/
+build/
+coverage/
+
+# Misc
+.idea/
+*.swp
