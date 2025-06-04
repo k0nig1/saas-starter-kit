@@ -1,15 +1,8 @@
 provider "aws" {
-  region = var.region
+  region  = var.aws_region
+  profile = "my-saas-app"
 }
 
-module "vpc" {
-  source = "./vpc.tf"
-}
-
-module "db" {
-  source = "./rds.tf"
-}
-
-module "app" {
-  source = "./ecs.tf"  # or ./lambda.tf
+locals {
+  private_subnet_ids = [for subnet in aws_subnet.private : subnet.id]
 }

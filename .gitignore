@@ -30,6 +30,10 @@ infra/terraform.tfstate
 infra/terraform.tfstate.backup
 infra/crash.log
 
+# Lambda
+lambda/node_modules/
+lambda.zip
+
 # AWS credentials (never commit these!)
 *.pem
 
