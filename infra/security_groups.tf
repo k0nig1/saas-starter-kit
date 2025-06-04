@@ -1,4 +1,3 @@
-
 resource "aws_security_group" "lambda_sg" {
   name        = "lambda-sg"
   description = "Allow Lambda to access RDS"

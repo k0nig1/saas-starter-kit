@@ -14,7 +14,7 @@ resource "aws_lambda_function" "hello" {
   role = aws_iam_role.lambda_exec.arn
 
   vpc_config {
-    subnet_ids         = aws_subnet.private[*].id
+    subnet_ids         = local.private_subnet_ids
     security_group_ids = [aws_security_group.lambda_sg.id]
   }
 
@@ -26,4 +26,12 @@ resource "aws_lambda_function" "hello" {
       DB_NAME     = aws_db_instance.app_db.db_name
     }
   }
+}
+
+resource "aws_lambda_permission" "apigw" {
+  statement_id  = "AllowAPIGatewayInvoke"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.hello.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_apigatewayv2_api.http_api.execution_arn}/*/*"
 }
